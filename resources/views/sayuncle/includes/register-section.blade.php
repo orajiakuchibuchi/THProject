@@ -1,6 +1,6 @@
 <section id="register" class="p_120 reg_area" >
    <div class="container box">
-@include('components.alert')
+@include('emails.components.alert')
       <br />
         
       <h2 align="center">Register Here</h2>
