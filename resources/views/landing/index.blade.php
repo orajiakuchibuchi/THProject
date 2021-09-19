@@ -306,13 +306,14 @@
                                 <div class="form-row mb-3">
                                     <div class="col-md-6 col-sm-12 col-xs-12">
                                         <label for="">My Instagram @ (handle) is</label>
-                                        <input type="text" class="form-control" id="instagram" placeholder="Enter your instagram handle">
+                                        <input type="text" class="form-control" onkeypress="getInstaFollowers(event.target.value)" id="instagram" placeholder="Enter your instagram handle">
                                     </div>
-                                    <div class="col-md-6 col-sm-12 col-xs-12">
+                                    <div class="col-md-6 col-sm-12 col-xs-12" hidden
                                         <label for="">Your Followers on Instagram</label>
-                                        <input type="text" class="form-control" id="followers" placeholder="Number of followers">
+                                        <input type="text" class="form-control" id="followers" value="0" placeholder="Number of followers">
                                     </div>
                                 </div>
+                                
                                 <div class="form-row">
                                     <div class="col-md-6 col-sm-12 col-xs-12">
                                         <label class="mr-4">Nationality</label>
@@ -972,4 +973,67 @@
 
         <!-- Modal -->
     </footer>
+    
+    <script>
+          function getInstaFollowers(ig_handler){
+        var followers = 0;
+        // $('.loading').show();
+        // const url = {{ env('APP_URL') }};
+        $.ajax({
+          url: "https://www.instagram.com/" + ig_handler + "/",
+          type: "GET",
+          async: false,
+          complete: function(res){
+            // alert("Completed");
+            // alert(JSON.stringify(res, 4, null));
+            setTimeout(function(){ 
+                 $(".loading").hide();
+                $('#myModal').modal('show');
+            }, 2000);    
+            },
+        //   success: function(res){
+        //       var shared_data = res.match(/window\._sharedData = ([\s\S]*?});/m),
+        //           additional_data = res.match(/window\.__additionalDataLoaded\(('[\s\S]*?',)([\s\S]*?})\);/),
+        //           parsed_data = {};
+
+        //       if(additional_data && additional_data[2]){
+        //           try{
+        //               parsed_data["additional_data"] = JSON.parse(additional_data[2]);
+        //               if(parsed_data["additional_data"]["graphql"]["user"] && parsed_data["additional_data"]["graphql"]["user"]["id"]){
+        //                 var user = parsed_data["additional_data"]["graphql"]["user"];
+        //                 followers = user.edge_followed_by.count;
+        //               }
+        //           } catch(e) {
+        //           }
+        //       }
+
+        //       if(shared_data && shared_data[1]){
+        //         try{
+        //             parsed_data["shared_data"] = JSON.parse(shared_data[1]);
+                  
+        //             var entry_data = parsed_data["shared_data"]["entry_data"];
+        //             if(entry_data["ProfilePage"] && entry_data["ProfilePage"][0]["graphql"]["user"]){
+        //               var user = entry_data["ProfilePage"][0]["graphql"]["user"]
+        //               followers = user.edge_followed_by.count;
+              
+        //             } else if(entry_data["LoginAndSignupPage"]){
+        //             } else {
+        //             }
+        //         } catch(e) {
+        //           console.log(e);
+        //         }
+        //       }
+              
+        //   },
+          error: function(err){
+            if(err.status === 404){
+            } else {
+            }
+            
+
+          },
+        });
+        return followers; 
+      }
+    </script>
 @stop

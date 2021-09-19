@@ -129,6 +129,6 @@ Route::get('/rave/callback', 'RaveController@callback')->name('callback');
 
 
 /////// New landing page
-Route::get('/landing', function () {
+Route::get('/landing2', function () {
     return view('landing.index');
 });
