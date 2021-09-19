@@ -1,0 +1,132 @@
+[22-Jul-2021 06:52:26 UTC] PHP Fatal error:  Allowed memory size of 1073741824 bytes exhausted (tried to allocate 565342208 bytes) in /home/justfluz/public_html/app/Http/Controllers/SayUncle/SayUncleController.php on line 72
+[22-Jul-2021 06:54:53 UTC] PHP Fatal error:  Allowed memory size of 536870912 bytes exhausted (tried to allocate 528486400 bytes) in /home/justfluz/public_html/app/Http/Controllers/SayUncle/SayUncleController.php on line 73
+[22-Jul-2021 06:56:24 UTC] PHP Fatal error:  Allowed memory size of 536870912 bytes exhausted (tried to allocate 532680704 bytes) in /home/justfluz/public_html/app/Http/Controllers/SayUncle/SayUncleController.php on line 74
+[22-Jul-2021 06:57:41 UTC] PHP Fatal error:  Allowed memory size of 536870912 bytes exhausted (tried to allocate 532680704 bytes) in /home/justfluz/public_html/app/Http/Controllers/SayUncle/SayUncleController.php on line 75
+[22-Jul-2021 06:57:47 UTC] PHP Fatal error:  Allowed memory size of 536870912 bytes exhausted (tried to allocate 530583552 bytes) in /home/justfluz/public_html/app/Http/Controllers/SayUncle/SayUncleController.php on line 75
+[22-Jul-2021 06:58:19 UTC] PHP Fatal error:  Allowed memory size of 1073741824 bytes exhausted (tried to allocate 565342208 bytes) in /home/justfluz/public_html/app/Http/Controllers/SayUncle/SayUncleController.php on line 75
+[24-Jul-2021 11:18:03 UTC] PHP Warning:  Uncaught ErrorException: require(PHPMailer/src/Exception.php): failed to open stream: No such file or directory in /home/justfluz/public_html/app/Http/Controllers/SayUncle/SayUncleController.php:27
+Stack trace:
+#0 /home/justfluz/public_html/app/Http/Controllers/SayUncle/SayUncleController.php(27): Illuminate\Foundation\Bootstrap\HandleExceptions->handleError(2, 'require(PHPMail...', '/home/justfluz/...', 27, Array)
+#1 /home/justfluz/public_html/app/Http/Controllers/SayUncle/SayUncleController.php(27): require()
+#2 [internal function]: App\Http\Controllers\SayUncle\SayUncleController->index()
+#3 /home/justfluz/public_html/vendor/laravel/framework/src/Illuminate/Routing/Controller.php(54): call_user_func_array(Array, Array)
+#4 /home/justfluz/public_html/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php(45): Illuminate\Routing\Controller->callAction('index', Array)
+#5 /home/justfluz/public_html/vendor/laravel/framework/src/Illuminate/Routing/Route.php(219): Illuminate\Routing\ControllerDis in /home/justfluz/public_html/app/Http/Controllers/SayUncle/SayUncleController.php on line 27
+[24-Jul-2021 11:18:03 UTC] PHP Fatal error:  App\Http\Controllers\SayUncle\SayUncleController::index(): Failed opening required 'PHPMailer/src/Exception.php' (include_path='.:/opt/alt/php72/usr/share/pear') in /home/justfluz/public_html/app/Http/Controllers/SayUncle/SayUncleController.php on line 27
+[24-Jul-2021 11:22:38 UTC] PHP Warning:  Uncaught ErrorException: require(../../PHPMailer/src/Exception.php): failed to open stream: No such file or directory in /home/justfluz/public_html/app/Http/Controllers/SayUncle/SayUncleController.php:27
+Stack trace:
+#0 /home/justfluz/public_html/app/Http/Controllers/SayUncle/SayUncleController.php(27): Illuminate\Foundation\Bootstrap\HandleExceptions->handleError(2, 'require(../../P...', '/home/justfluz/...', 27, Array)
+#1 /home/justfluz/public_html/app/Http/Controllers/SayUncle/SayUncleController.php(27): require()
+#2 [internal function]: App\Http\Controllers\SayUncle\SayUncleController->index()
+#3 /home/justfluz/public_html/vendor/laravel/framework/src/Illuminate/Routing/Controller.php(54): call_user_func_array(Array, Array)
+#4 /home/justfluz/public_html/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php(45): Illuminate\Routing\Controller->callAction('index', Array)
+#5 /home/justfluz/public_html/vendor/laravel/framework/src/Illuminate/Routing/Route.php(219): Illuminate\Routing\Control in /home/justfluz/public_html/app/Http/Controllers/SayUncle/SayUncleController.php on line 27
+[24-Jul-2021 11:22:38 UTC] PHP Fatal error:  App\Http\Controllers\SayUncle\SayUncleController::index(): Failed opening required '../../PHPMailer/src/Exception.php' (include_path='.:/opt/alt/php72/usr/share/pear') in /home/justfluz/public_html/app/Http/Controllers/SayUncle/SayUncleController.php on line 27
+[24-Jul-2021 11:25:35 UTC] PHP Warning:  Uncaught ErrorException: require(../../PHPMailer/src/Exception.php): failed to open stream: No such file or directory in /home/justfluz/public_html/app/Http/Controllers/SayUncle/SayUncleController.php:27
+Stack trace:
+#0 /home/justfluz/public_html/app/Http/Controllers/SayUncle/SayUncleController.php(27): Illuminate\Foundation\Bootstrap\HandleExceptions->handleError(2, 'require(../../P...', '/home/justfluz/...', 27, Array)
+#1 /home/justfluz/public_html/app/Http/Controllers/SayUncle/SayUncleController.php(27): require()
+#2 [internal function]: App\Http\Controllers\SayUncle\SayUncleController->index()
+#3 /home/justfluz/public_html/vendor/laravel/framework/src/Illuminate/Routing/Controller.php(54): call_user_func_array(Array, Array)
+#4 /home/justfluz/public_html/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php(45): Illuminate\Routing\Controller->callAction('index', Array)
+#5 /home/justfluz/public_html/vendor/laravel/framework/src/Illuminate/Routing/Route.php(219): Illuminate\Routing\Control in /home/justfluz/public_html/app/Http/Controllers/SayUncle/SayUncleController.php on line 27
+[24-Jul-2021 11:25:35 UTC] PHP Fatal error:  App\Http\Controllers\SayUncle\SayUncleController::index(): Failed opening required '../../PHPMailer/src/Exception.php' (include_path='.:/opt/alt/php72/usr/share/pear') in /home/justfluz/public_html/app/Http/Controllers/SayUncle/SayUncleController.php on line 27
+[24-Jul-2021 11:26:30 UTC] PHP Warning:  Uncaught ErrorException: require(/../../PHPMailer/src/Exception.php): failed to open stream: No such file or directory in /home/justfluz/public_html/app/Http/Controllers/SayUncle/SayUncleController.php:27
+Stack trace:
+#0 /home/justfluz/public_html/app/Http/Controllers/SayUncle/SayUncleController.php(27): Illuminate\Foundation\Bootstrap\HandleExceptions->handleError(2, 'require(/../../...', '/home/justfluz/...', 27, Array)
+#1 /home/justfluz/public_html/app/Http/Controllers/SayUncle/SayUncleController.php(27): require()
+#2 [internal function]: App\Http\Controllers\SayUncle\SayUncleController->index()
+#3 /home/justfluz/public_html/vendor/laravel/framework/src/Illuminate/Routing/Controller.php(54): call_user_func_array(Array, Array)
+#4 /home/justfluz/public_html/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php(45): Illuminate\Routing\Controller->callAction('index', Array)
+#5 /home/justfluz/public_html/vendor/laravel/framework/src/Illuminate/Routing/Route.php(219): Illuminate\Routing\Contro in /home/justfluz/public_html/app/Http/Controllers/SayUncle/SayUncleController.php on line 27
+[24-Jul-2021 11:26:30 UTC] PHP Fatal error:  App\Http\Controllers\SayUncle\SayUncleController::index(): Failed opening required '/../../PHPMailer/src/Exception.php' (include_path='.:/opt/alt/php72/usr/share/pear') in /home/justfluz/public_html/app/Http/Controllers/SayUncle/SayUncleController.php on line 27
+[24-Jul-2021 11:28:22 UTC] PHP Warning:  Uncaught ErrorException: require(/../../PHPMailer/src/Exception.php): failed to open stream: No such file or directory in /home/justfluz/public_html/app/Http/Controllers/SayUncle/SayUncleController.php:27
+Stack trace:
+#0 /home/justfluz/public_html/app/Http/Controllers/SayUncle/SayUncleController.php(27): Illuminate\Foundation\Bootstrap\HandleExceptions->handleError(2, 'require(/../../...', '/home/justfluz/...', 27, Array)
+#1 /home/justfluz/public_html/app/Http/Controllers/SayUncle/SayUncleController.php(27): require()
+#2 [internal function]: App\Http\Controllers\SayUncle\SayUncleController->index()
+#3 /home/justfluz/public_html/vendor/laravel/framework/src/Illuminate/Routing/Controller.php(54): call_user_func_array(Array, Array)
+#4 /home/justfluz/public_html/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php(45): Illuminate\Routing\Controller->callAction('index', Array)
+#5 /home/justfluz/public_html/vendor/laravel/framework/src/Illuminate/Routing/Route.php(219): Illuminate\Routing\Contro in /home/justfluz/public_html/app/Http/Controllers/SayUncle/SayUncleController.php on line 27
+[24-Jul-2021 11:28:22 UTC] PHP Fatal error:  App\Http\Controllers\SayUncle\SayUncleController::index(): Failed opening required '/../../PHPMailer/src/Exception.php' (include_path='.:/opt/alt/php72/usr/share/pear') in /home/justfluz/public_html/app/Http/Controllers/SayUncle/SayUncleController.php on line 27
+[24-Jul-2021 11:28:53 UTC] PHP Warning:  Uncaught ErrorException: require(PHPMailer/src/Exception.php): failed to open stream: No such file or directory in /home/justfluz/public_html/app/Http/Controllers/SayUncle/SayUncleController.php:27
+Stack trace:
+#0 /home/justfluz/public_html/app/Http/Controllers/SayUncle/SayUncleController.php(27): Illuminate\Foundation\Bootstrap\HandleExceptions->handleError(2, 'require(PHPMail...', '/home/justfluz/...', 27, Array)
+#1 /home/justfluz/public_html/app/Http/Controllers/SayUncle/SayUncleController.php(27): require()
+#2 [internal function]: App\Http\Controllers\SayUncle\SayUncleController->index()
+#3 /home/justfluz/public_html/vendor/laravel/framework/src/Illuminate/Routing/Controller.php(54): call_user_func_array(Array, Array)
+#4 /home/justfluz/public_html/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php(45): Illuminate\Routing\Controller->callAction('index', Array)
+#5 /home/justfluz/public_html/vendor/laravel/framework/src/Illuminate/Routing/Route.php(219): Illuminate\Routing\ControllerDis in /home/justfluz/public_html/app/Http/Controllers/SayUncle/SayUncleController.php on line 27
+[24-Jul-2021 11:28:53 UTC] PHP Fatal error:  App\Http\Controllers\SayUncle\SayUncleController::index(): Failed opening required 'PHPMailer/src/Exception.php' (include_path='.:/opt/alt/php72/usr/share/pear') in /home/justfluz/public_html/app/Http/Controllers/SayUncle/SayUncleController.php on line 27
+[24-Jul-2021 11:29:57 UTC] PHP Warning:  Uncaught ErrorException: require(PHPMailer/src/Exception.php): failed to open stream: No such file or directory in /home/justfluz/public_html/app/Http/Controllers/SayUncle/SayUncleController.php:27
+Stack trace:
+#0 /home/justfluz/public_html/app/Http/Controllers/SayUncle/SayUncleController.php(27): Illuminate\Foundation\Bootstrap\HandleExceptions->handleError(2, 'require(PHPMail...', '/home/justfluz/...', 27, Array)
+#1 /home/justfluz/public_html/app/Http/Controllers/SayUncle/SayUncleController.php(27): require()
+#2 [internal function]: App\Http\Controllers\SayUncle\SayUncleController->index()
+#3 /home/justfluz/public_html/vendor/laravel/framework/src/Illuminate/Routing/Controller.php(54): call_user_func_array(Array, Array)
+#4 /home/justfluz/public_html/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php(45): Illuminate\Routing\Controller->callAction('index', Array)
+#5 /home/justfluz/public_html/vendor/laravel/framework/src/Illuminate/Routing/Route.php(219): Illuminate\Routing\ControllerDis in /home/justfluz/public_html/app/Http/Controllers/SayUncle/SayUncleController.php on line 27
+[24-Jul-2021 11:29:57 UTC] PHP Fatal error:  App\Http\Controllers\SayUncle\SayUncleController::index(): Failed opening required 'PHPMailer/src/Exception.php' (include_path='.:/opt/alt/php72/usr/share/pear') in /home/justfluz/public_html/app/Http/Controllers/SayUncle/SayUncleController.php on line 27
+[24-Jul-2021 11:30:20 UTC] PHP Warning:  Uncaught ErrorException: require(PHPMailer/src/Exception.php): failed to open stream: No such file or directory in /home/justfluz/public_html/app/Http/Controllers/SayUncle/SayUncleController.php:27
+Stack trace:
+#0 /home/justfluz/public_html/app/Http/Controllers/SayUncle/SayUncleController.php(27): Illuminate\Foundation\Bootstrap\HandleExceptions->handleError(2, 'require(PHPMail...', '/home/justfluz/...', 27, Array)
+#1 /home/justfluz/public_html/app/Http/Controllers/SayUncle/SayUncleController.php(27): require()
+#2 [internal function]: App\Http\Controllers\SayUncle\SayUncleController->index()
+#3 /home/justfluz/public_html/vendor/laravel/framework/src/Illuminate/Routing/Controller.php(54): call_user_func_array(Array, Array)
+#4 /home/justfluz/public_html/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php(45): Illuminate\Routing\Controller->callAction('index', Array)
+#5 /home/justfluz/public_html/vendor/laravel/framework/src/Illuminate/Routing/Route.php(219): Illuminate\Routing\ControllerDis in /home/justfluz/public_html/app/Http/Controllers/SayUncle/SayUncleController.php on line 27
+[24-Jul-2021 11:30:20 UTC] PHP Fatal error:  App\Http\Controllers\SayUncle\SayUncleController::index(): Failed opening required 'PHPMailer/src/Exception.php' (include_path='.:/opt/alt/php72/usr/share/pear') in /home/justfluz/public_html/app/Http/Controllers/SayUncle/SayUncleController.php on line 27
+[24-Jul-2021 11:31:17 UTC] PHP Warning:  Uncaught ErrorException: require(/PHPMailer/src/Exception.php): failed to open stream: No such file or directory in /home/justfluz/public_html/app/Http/Controllers/SayUncle/SayUncleController.php:27
+Stack trace:
+#0 /home/justfluz/public_html/app/Http/Controllers/SayUncle/SayUncleController.php(27): Illuminate\Foundation\Bootstrap\HandleExceptions->handleError(2, 'require(/PHPMai...', '/home/justfluz/...', 27, Array)
+#1 /home/justfluz/public_html/app/Http/Controllers/SayUncle/SayUncleController.php(27): require()
+#2 [internal function]: App\Http\Controllers\SayUncle\SayUncleController->index()
+#3 /home/justfluz/public_html/vendor/laravel/framework/src/Illuminate/Routing/Controller.php(54): call_user_func_array(Array, Array)
+#4 /home/justfluz/public_html/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php(45): Illuminate\Routing\Controller->callAction('index', Array)
+#5 /home/justfluz/public_html/vendor/laravel/framework/src/Illuminate/Routing/Route.php(219): Illuminate\Routing\ControllerDi in /home/justfluz/public_html/app/Http/Controllers/SayUncle/SayUncleController.php on line 27
+[24-Jul-2021 11:31:17 UTC] PHP Fatal error:  App\Http\Controllers\SayUncle\SayUncleController::index(): Failed opening required '/PHPMailer/src/Exception.php' (include_path='.:/opt/alt/php72/usr/share/pear') in /home/justfluz/public_html/app/Http/Controllers/SayUncle/SayUncleController.php on line 27
+[24-Jul-2021 11:31:32 UTC] PHP Warning:  Uncaught ErrorException: require(/PHPMailer/src/Exception.php): failed to open stream: No such file or directory in /home/justfluz/public_html/app/Http/Controllers/SayUncle/SayUncleController.php:27
+Stack trace:
+#0 /home/justfluz/public_html/app/Http/Controllers/SayUncle/SayUncleController.php(27): Illuminate\Foundation\Bootstrap\HandleExceptions->handleError(2, 'require(/PHPMai...', '/home/justfluz/...', 27, Array)
+#1 /home/justfluz/public_html/app/Http/Controllers/SayUncle/SayUncleController.php(27): require()
+#2 [internal function]: App\Http\Controllers\SayUncle\SayUncleController->index()
+#3 /home/justfluz/public_html/vendor/laravel/framework/src/Illuminate/Routing/Controller.php(54): call_user_func_array(Array, Array)
+#4 /home/justfluz/public_html/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php(45): Illuminate\Routing\Controller->callAction('index', Array)
+#5 /home/justfluz/public_html/vendor/laravel/framework/src/Illuminate/Routing/Route.php(219): Illuminate\Routing\ControllerDi in /home/justfluz/public_html/app/Http/Controllers/SayUncle/SayUncleController.php on line 27
+[24-Jul-2021 11:31:32 UTC] PHP Fatal error:  App\Http\Controllers\SayUncle\SayUncleController::index(): Failed opening required '/PHPMailer/src/Exception.php' (include_path='.:/opt/alt/php72/usr/share/pear') in /home/justfluz/public_html/app/Http/Controllers/SayUncle/SayUncleController.php on line 27
+[24-Jul-2021 11:33:18 UTC] PHP Warning:  Uncaught ErrorException: require(/PHPMailer/src/Exception.php): failed to open stream: No such file or directory in /home/justfluz/public_html/app/Http/Controllers/SayUncle/SayUncleController.php:29
+Stack trace:
+#0 /home/justfluz/public_html/app/Http/Controllers/SayUncle/SayUncleController.php(29): Illuminate\Foundation\Bootstrap\HandleExceptions->handleError(2, 'require(/PHPMai...', '/home/justfluz/...', 29, Array)
+#1 /home/justfluz/public_html/app/Http/Controllers/SayUncle/SayUncleController.php(29): require()
+#2 [internal function]: App\Http\Controllers\SayUncle\SayUncleController->index()
+#3 /home/justfluz/public_html/vendor/laravel/framework/src/Illuminate/Routing/Controller.php(54): call_user_func_array(Array, Array)
+#4 /home/justfluz/public_html/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php(45): Illuminate\Routing\Controller->callAction('index', Array)
+#5 /home/justfluz/public_html/vendor/laravel/framework/src/Illuminate/Routing/Route.php(219): Illuminate\Routing\ControllerDi in /home/justfluz/public_html/app/Http/Controllers/SayUncle/SayUncleController.php on line 29
+[24-Jul-2021 11:33:18 UTC] PHP Fatal error:  App\Http\Controllers\SayUncle\SayUncleController::index(): Failed opening required '/PHPMailer/src/Exception.php' (include_path='.:/opt/alt/php72/usr/share/pear') in /home/justfluz/public_html/app/Http/Controllers/SayUncle/SayUncleController.php on line 29
+[24-Jul-2021 11:35:29 UTC] PHP Warning:  Uncaught ErrorException: require(/PHPMailer/src/PHPMailer.php): failed to open stream: No such file or directory in /home/justfluz/public_html/app/Http/Controllers/SayUncle/SayUncleController.php:30
+Stack trace:
+#0 /home/justfluz/public_html/app/Http/Controllers/SayUncle/SayUncleController.php(30): Illuminate\Foundation\Bootstrap\HandleExceptions->handleError(2, 'require(/PHPMai...', '/home/justfluz/...', 30, Array)
+#1 /home/justfluz/public_html/app/Http/Controllers/SayUncle/SayUncleController.php(30): require()
+#2 [internal function]: App\Http\Controllers\SayUncle\SayUncleController->index()
+#3 /home/justfluz/public_html/vendor/laravel/framework/src/Illuminate/Routing/Controller.php(54): call_user_func_array(Array, Array)
+#4 /home/justfluz/public_html/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php(45): Illuminate\Routing\Controller->callAction('index', Array)
+#5 /home/justfluz/public_html/vendor/laravel/framework/src/Illuminate/Routing/Route.php(219): Illuminate\Routing\ControllerDi in /home/justfluz/public_html/app/Http/Controllers/SayUncle/SayUncleController.php on line 30
+[24-Jul-2021 11:35:29 UTC] PHP Fatal error:  App\Http\Controllers\SayUncle\SayUncleController::index(): Failed opening required '/PHPMailer/src/PHPMailer.php' (include_path='.:/opt/alt/php72/usr/share/pear') in /home/justfluz/public_html/app/Http/Controllers/SayUncle/SayUncleController.php on line 30
+[24-Jul-2021 11:40:21 UTC] PHP Fatal error:  Cannot declare class PHPMailer\PHPMailer\PHPMailer, because the name is already in use in /home/justfluz/public_html/app/PHPMailer/src/PHPMailer.php on line 32
+[24-Jul-2021 11:41:12 UTC] PHP Warning:  Uncaught ErrorException: require(/home/justfluz/public_html/app/public/PHPMailer/src/Exception.php): failed to open stream: No such file or directory in /home/justfluz/public_html/app/Http/Controllers/SayUncle/SayUncleController.php:29
+Stack trace:
+#0 /home/justfluz/public_html/app/Http/Controllers/SayUncle/SayUncleController.php(29): Illuminate\Foundation\Bootstrap\HandleExceptions->handleError(2, 'require(/home/j...', '/home/justfluz/...', 29, Array)
+#1 /home/justfluz/public_html/app/Http/Controllers/SayUncle/SayUncleController.php(29): require()
+#2 [internal function]: App\Http\Controllers\SayUncle\SayUncleController->index()
+#3 /home/justfluz/public_html/vendor/laravel/framework/src/Illuminate/Routing/Controller.php(54): call_user_func_array(Array, Array)
+#4 /home/justfluz/public_html/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php(45): Illuminate\Routing\Controller->callAction('index', Array)
+#5 /home/justfluz/public_html/vendor/laravel/framework/src/Illuminate/Routing/Route.php( in /home/justfluz/public_html/app/Http/Controllers/SayUncle/SayUncleController.php on line 29
+[24-Jul-2021 11:41:12 UTC] PHP Fatal error:  App\Http\Controllers\SayUncle\SayUncleController::index(): Failed opening required '/home/justfluz/public_html/app/public/PHPMailer/src/Exception.php' (include_path='.:/opt/alt/php72/usr/share/pear') in /home/justfluz/public_html/app/Http/Controllers/SayUncle/SayUncleController.php on line 29
+[24-Jul-2021 11:42:09 UTC] PHP Fatal error:  Cannot declare class PHPMailer\PHPMailer\PHPMailer, because the name is already in use in /home/justfluz/public_html/app/PHPMailer/src/PHPMailer.php on line 32
+[24-Jul-2021 11:43:22 UTC] PHP Fatal error:  Cannot declare class PHPMailer\PHPMailer\PHPMailer, because the name is already in use in /home/justfluz/public_html/app/PHPMailer/src/PHPMailer.php on line 32
+[24-Jul-2021 11:44:28 UTC] PHP Fatal error:  Cannot declare class PHPMailer\PHPMailer\PHPMailer, because the name is already in use in /home/justfluz/public_html/app/PHPMailer/src/PHPMailer.php on line 32
+[24-Jul-2021 11:47:54 UTC] PHP Fatal error:  Cannot declare class PHPMailer\PHPMailer\PHPMailer, because the name is already in use in /home/justfluz/public_html/app/PHPMailer/src/PHPMailer.php on line 32
+[24-Jul-2021 11:48:25 UTC] PHP Fatal error:  Cannot declare class PHPMailer\PHPMailer\Exception, because the name is already in use in /home/justfluz/public_html/app/PHPMailer/src/Exception.php on line 0
+[24-Jul-2021 11:53:19 UTC] PHP Fatal error:  Cannot declare class PHPMailer\PHPMailer\Exception, because the name is already in use in /home/justfluz/public_html/app/PHPMailer/src/Exception.php on line 0
+[24-Jul-2021 11:53:36 UTC] PHP Fatal error:  Cannot declare class PHPMailer\PHPMailer\Exception, because the name is already in use in /home/justfluz/public_html/app/PHPMailer/src/Exception.php on line 0
+[24-Jul-2021 12:02:49 UTC] PHP Fatal error:  Cannot use PHPMailer\src as src because the name is already in use in /home/justfluz/public_html/app/Http/Controllers/SayUncle/SayUncleController.php on line 17
