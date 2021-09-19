@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" crossorigin="anonymous">
 <link rel="stylesheet" href="{{ asset('../sayUncle/css/rtop.videoPlayer.1.0.1.min.css') }}" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
 <link rel="stylesheet" type="text/css" href="{{ asset('../sayUncle/css/cropper.min.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ asset('../sayUncle/css/loading.css') }}">
 <link rel="stylesheet" href="{{ asset('../landing/css/styles.css') }}">
