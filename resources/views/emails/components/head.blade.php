@@ -6,7 +6,7 @@
     <!--IE Compatibility Meta-->
     <meta name="author" content="Top Finance"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="JustSayUncle">
+    <meta name="description" content="SayUncle">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link href="{{url('assets/images/favicon/default.png')}}" rel="icon">
 
@@ -35,5 +35,5 @@
 
     <!-- Document Title
         ============================================= -->
-    <title>JustSayUncle</title>
+    <title>SayUncle</title>
     </head>

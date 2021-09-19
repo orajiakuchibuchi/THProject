@@ -309,8 +309,8 @@ if (!function_exists('send_sayuncle_registeration_email')) {
 // 	        [
 // 	            'name' => 'ram' ,
 // 	            'email' => 'vishalsingh.mailinator.com',
-// 	            'url' => 'http://www.justsayuncle.ng/sayuncle/contestant/13/868487b9296c91e949098dc453289010e31d0fcf8d0439c3053f10c0218b41ef',
-// 	            'referal_url' => 'http://www.justsayuncle.ng/sayuncle/profile/SUR1316052',
+// 	            'url' => 'http://www.SayUncle.ng/sayuncle/contestant/13/868487b9296c91e949098dc453289010e31d0fcf8d0439c3053f10c0218b41ef',
+// 	            'referal_url' => 'http://www.SayUncle.ng/sayuncle/profile/SUR1316052',
 // 	        ], function ($message) use ($contestant ){
 // 	            $message->subject('Welcome to Vicomma | Sayuncle Contest');
 //                 $message->from('vishalsingh@rglabs.net');
@@ -357,9 +357,9 @@ if (!function_exists('send_sayuncle_registeration_email')) {
 	            'name' => $contestant['first_name'] ,
 	            'email' => $contestant['email'],
 	            'url' => route('sayuncle.contestant.details', ['contestant' => $contestant['id'],'signature' => $contestant['auth_token'] ]),
-	           // 'url' => 'http://www.justsayuncle.ng/sayuncle/contestant/13/868487b9296c91e949098dc453289010e31d0fcf8d0439c3053f10c0218b41ef',
+	           // 'url' => 'http://www.SayUncle.ng/sayuncle/contestant/13/868487b9296c91e949098dc453289010e31d0fcf8d0439c3053f10c0218b41ef',
 	            'referal_url' => route('sayuncle.contestant.profile', ['contestant' => $contestant['contestant_id'] ]),
-	           // 'referal_url' => 'http://www.justsayuncle.ng/sayuncle/profile/SUR1316052',
+	           // 'referal_url' => 'http://www.SayUncle.ng/sayuncle/profile/SUR1316052',
 	        ], function ($message) use ($contestant ){
 	            $message->subject('Welcome to Vicomma | Sayuncle Contest');
 	               // $message->from(config('mail.from.address'),config('mail.from.name'));
