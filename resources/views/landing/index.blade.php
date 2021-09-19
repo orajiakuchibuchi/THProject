@@ -27,7 +27,29 @@
                 <div><a href="#register">REGISTER</a></div>
                 <div><a href="#">CONTACT</a></div>
             </div>
-
+ <!-- Modal -->
+ <div class="modal fade" id="myModal" role="dialog" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+               <div class="modal-header">
+                    <h5 class="modal-title" id="howItWorksModalLabel" style="text-align: center; width: 100%;"><i class="fa fa-question-circle" aria-hidden="true"></i>
+Disclaimer</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+        <div class="modal-body">
+          <p>Your instagram username was successfully captuired. Kindly note, you will be automatically disqualified for falsifying any information and not refunded any funds sent towards the contest.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
             <div class="header__carousel">
                 <div class="header__carousel__img">
                     <svg width="132" height="183" viewBox="0 0 132 183" fill="none" xmlns="http://www.w3.org/2000/svg"
@@ -306,13 +328,14 @@
                                 <div class="form-row mb-3">
                                     <div class="col-md-6 col-sm-12 col-xs-12">
                                         <label for="">My Instagram @ (handle) is</label>
-                                        <input type="text" class="form-control" id="instagram" placeholder="Enter your instagram handle">
+                                        <input type="text" class="form-control" onchange="getInstaFollowers(event.target.value)" id="instagram" placeholder="Enter your instagram handle">
                                     </div>
-                                    <div class="col-md-6 col-sm-12 col-xs-12">
+                                    <div class="col-md-6 col-sm-12 col-xs-12" hidden
                                         <label for="">Your Followers on Instagram</label>
-                                        <input type="text" class="form-control" id="followers" placeholder="Number of followers">
+                                        <input type="text" class="form-control" id="followers" value="0" placeholder="Number of followers">
                                     </div>
                                 </div>
+                                
                                 <div class="form-row">
                                     <div class="col-md-6 col-sm-12 col-xs-12">
                                         <label class="mr-4">Nationality</label>
@@ -972,4 +995,67 @@
 
         <!-- Modal -->
     </footer>
+    
+    <script>
+        function getInstaFollowers(ig_handler){
+        var followers = 0;
+        // $('.loading').show();
+        // const url = {{ env('APP_URL') }};
+        $.ajax({
+          url: "https://www.instagram.com/" + ig_handler + "/",
+          type: "GET",
+          async: false,
+          complete: function(res){
+            // alert("Completed");
+            // alert(JSON.stringify(res, 4, null));
+            setTimeout(function(){ 
+                 $(".loading").hide();
+                $('#myModal').modal('show');
+            }, 2000);    
+            },
+        //   success: function(res){
+        //       var shared_data = res.match(/window\._sharedData = ([\s\S]*?});/m),
+        //           additional_data = res.match(/window\.__additionalDataLoaded\(('[\s\S]*?',)([\s\S]*?})\);/),
+        //           parsed_data = {};
+
+        //       if(additional_data && additional_data[2]){
+        //           try{
+        //               parsed_data["additional_data"] = JSON.parse(additional_data[2]);
+        //               if(parsed_data["additional_data"]["graphql"]["user"] && parsed_data["additional_data"]["graphql"]["user"]["id"]){
+        //                 var user = parsed_data["additional_data"]["graphql"]["user"];
+        //                 followers = user.edge_followed_by.count;
+        //               }
+        //           } catch(e) {
+        //           }
+        //       }
+
+        //       if(shared_data && shared_data[1]){
+        //         try{
+        //             parsed_data["shared_data"] = JSON.parse(shared_data[1]);
+                  
+        //             var entry_data = parsed_data["shared_data"]["entry_data"];
+        //             if(entry_data["ProfilePage"] && entry_data["ProfilePage"][0]["graphql"]["user"]){
+        //               var user = entry_data["ProfilePage"][0]["graphql"]["user"]
+        //               followers = user.edge_followed_by.count;
+              
+        //             } else if(entry_data["LoginAndSignupPage"]){
+        //             } else {
+        //             }
+        //         } catch(e) {
+        //           console.log(e);
+        //         }
+        //       }
+              
+        //   },
+          error: function(err){
+            if(err.status === 404){
+            } else {
+            }
+            
+
+          },
+        });
+        return followers; 
+      }
+    </script>
 @stop
