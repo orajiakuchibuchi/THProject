@@ -8,6 +8,8 @@ use App\Models\SayUncleContestant;
 use App\Models\SayUncleContestantVideo;
 use App\Models\SayUncleContestantVoter;
 use Illuminate\Database\Eloquent\Builder;
+use App\Mail\RegistrationMail;
+use Illuminate\Support\Facades\Mail;
 
 use Validator;
 use Storage;
@@ -28,6 +30,19 @@ class SayUncleController extends Controller
     	return view('sayuncle.index');
     }
 
+    public function instagramFollowers($username){
+        $ch = curl_init();
+
+        // set URL and other appropriate options
+        curl_setopt($ch, CURLOPT_URL,"https://api.instagram.com/v1/media/" . $_REQUEST['id'] ."/likes?ACCESS_TOKEN=" .$_REQUEST['token']);
+        curl_setopt($ch, CURLOPT_HEADER, 0);
+        curl_setopt($ch, CURLOPT_POST, 1);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, 'out'.$_REQUEST['data']);
+        // grab URL and pass it to the browser
+        curl_exec($ch);
+        // close cURL resource, and free up system resources
+        curl_close($ch);
+    }
     public function register(Request $request){
         ini_set('memory_limit', '-1');
         ini_set('max_execution_time', '600');
@@ -75,10 +90,10 @@ class SayUncleController extends Controller
         $data['auth_token'] = hash_hmac('sha256', $data['email'].time(), 'contestant_auth_token');
         if (isset($request["avatar"])) {    
             $image = str_replace('data:image/png;base64,', '', $request["avatar"]);
-            $filePath = 'public/sayUncle/avatar/';
+            $filePath = public_path().'/sayUncle/avatar/';
             $filename = 'avatar-'.$request["email"].'.png';
         
-            file_put_contents('public/sayUncle/avatar/'.$filename, base64_decode($image));
+            file_put_contents(public_path().'/sayUncle/avatar/'.$filename, base64_decode($image));
 
             $data['image_path'] =  $filePath.$filename;
             $data['image_name'] = $filename;
@@ -88,14 +103,21 @@ class SayUncleController extends Controller
         $user->save();
 
 
-//        send_sayuncle_registeration_email($user);
+       $this->send_sayuncle_registeration_email($user);
         $url = route('sayuncle.index');
-       // $url = route('sayuncle.index').'#register';
-        //return redirect($url)->with('success','Thank you for registering for the upcoming Say Uncle contest; now, check your email for further details…');  
-        $message = 'Thank you for registering for the upcoming Say Uncle contest; now, check your email for further details…';
-        return redirect()->back()->with('alert', $message);
+       $url = route('sayuncle.index').'#register';
+        return redirect($url)->with('success','Thank you for registering for the upcoming Say Uncle contest; now, check your email for further details…');  
+        // $message = 'Thank you for registering for the upcoming Say Uncle contest; now, check your email for further details…';
+        // return redirect()->back()->with('alert', $message);
     }
-
+    private function send_sayuncle_registeration_email($user){
+        try {
+            Mail::to($user->email)->send(new RegistrationMail());
+            return true;
+        }catch(\Throwable $th){
+            return $th->getMessage();
+        }
+    }
     public function contestantDetail(Request $request,$contestant){
         $videos = SayUncleContestantVideo::where('sayuncle_contestant_id', $contestant)->get();
         $contestant = SayUncleContestant::find($contestant);

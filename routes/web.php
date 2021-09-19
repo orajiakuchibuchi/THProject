@@ -37,6 +37,7 @@ Route::group([
 ], function() {
 
     Route::get('/', 'SayUncleController@index')->name('index');
+    Route::get('/getinstagram/followers/{username}', 'SayUncleController@instagramFollowers')->name('instagramFollowers');
     Route::post('/register', 'SayUncleController@register')->name('register'); 
     Route::post('/new-register', 'SayUncleController@new_register')->name('new_register');
     Route::get('/profile/{contestant}', 'SayUncleController@publicProfile' )->name('contestant.profile');
