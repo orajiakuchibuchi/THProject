@@ -117,6 +117,6 @@ class RaveController extends Controller
 //        return redirect()->route('sayuncle.contestant.details',['contestant'=> $contestant->id,'signature'=>$contestant->auth_token])->with('error','Not allowed unless payment is verified');
 //
 //      }
-      return redirect('/landing/#register')->with('transaction', $transaction);
+      return redirect('/landing')->with('transaction', $transaction);
   } 
 }
