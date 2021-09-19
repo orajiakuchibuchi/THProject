@@ -11,7 +11,8 @@ use App\Models\SayUncleContestPayment;
 use App\Models\SayUncleContestantVideo;
 use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\Log;
-
+use App\Mail\RegistrationMail;
+use Illuminate\Support\Facades\Mail;
 
 //use the Rave Facade
 
@@ -49,7 +50,6 @@ class RaveController extends Controller
               "phone_number" => $user_details['phone'],
               "name" => $user_details['first_name'].' '.$user_details['last_name']
           ],
-
           "customizations" => [
               "title" => 'SayUncle',
               "description" => "User registration"
@@ -60,7 +60,12 @@ class RaveController extends Controller
       if (!$payment['success']) {
           return redirect()->back()->with('alert', 'Payment failed!');
       }
-      return redirect($payment['data']->link);
+    try {
+        Mail::to($user_details['email'])->send(new RegistrationMail());
+    }catch(\Throwable $th){
+        
+    }
+    return redirect($payment['data']->link);
   }
 
     /**
@@ -117,6 +122,12 @@ class RaveController extends Controller
 //        return redirect()->route('sayuncle.contestant.details',['contestant'=> $contestant->id,'signature'=>$contestant->auth_token])->with('error','Not allowed unless payment is verified');
 //
 //      }
+    // try {
+    //     Mail::to($user->email)->send(new RegistrationMail());
+    //     // return true;
+    // }catch(\Throwable $th){
+    //     // return $th->getMessage();
+    // }
       return redirect('/landing')->with('transaction', $transaction);
   } 
 }
