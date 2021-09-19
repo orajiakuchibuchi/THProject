@@ -109,7 +109,8 @@ const registerUser = () => {
       if (err.status === 422) {
         $.alert({
           title: 'Error Occurred',
-          content: err.responseJSON.errors.email ? err.responseJSON.errors.email[0] : 'All fields are required!',
+          content: err.responseJSON.errors.email ? err.responseJSON.errors.email[0]
+              : err.responseJSON.errors.avatar ? err.responseJSON.errors.avatar[0] : 'All fields are required!',
           theme: 'supervan'
         });
         return;
