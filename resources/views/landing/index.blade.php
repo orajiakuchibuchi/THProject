@@ -24,7 +24,7 @@
             <div class="side-bar" id="sideBar">
                 <div onclick="hideSideBar()"><img src="{{ asset('../landing/images/cancel.png') }}" alt="" width="40"></div>
                 <div><a href="#">WHAT IS JUSTSAYUNCLE</a></div>
-                <div><a href="#">REGISTER</a></div>
+                <div><a href="#register">REGISTER</a></div>
                 <div><a href="#">CONTACT</a></div>
             </div>
 
