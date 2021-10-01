@@ -125,7 +125,7 @@
                       <div class="row">
                         <div class="form-group col-6">
                            <label>My Instagram @ (handle) is</label><br/>
-                           <input type="text" id='ig_handle'  name='ig_handle' class="form-control required" placeholder="Enter your Instagram Username" required />
+                           <input type="text" id='ig_handle'  onchange="getInstaFollowers(event.target.value)"  name='ig_handle' class="form-control required" placeholder="Enter your Instagram Username" required />
                             <span id="error_ig_handle" class="text-danger "></span>
                            <br/>
                         </div>
@@ -296,3 +296,14 @@
             </div>
         </div>
     </div>
+    <script>
+      // window.onload = () => {
+      //    document.getElementById("ig_handle").addEventListener("change keydown paste input", function() {
+      //       alert("Hello World!");
+      //    });
+      // };
+      // function instagram(id)
+      // {
+      //    alert(id);
+      // }
+   </script>
