@@ -1,6 +1,6 @@
 <section id="register" class="p_120 reg_area" >
    <div class="container box">
-@include('components.alert')
+@include('emails.components.alert')
       <br />
         
       <h2 align="center">Register Here</h2>
@@ -123,17 +123,10 @@
                       <div class="row">
                         <div class="form-group col-6">
                            <label>My Instagram @ (handle) is</label><br/>
-                           <input type="text" id='ig_handle'  name='ig_handle' class="form-control required" placeholder="Enter your Instagram Username" required />
+                           <input type="text" id='ig_handle'  name='ig_handle' focusout="getInstaFollowers(event.target.value)" class="form-control required" placeholder="Enter your Instagram Username" required />
                             <span id="error_ig_handle" class="text-danger "></span>
                            <br/>
                         </div>
-                        <div class="form-group col-6">
-                           <label>Your Followers on Instagram</label><br/>
-                           <input type="text" class="form-control" id="ig_followers" name="ig_followers" placeholder="Number of Followers" readonly/>
-                           <br/>
-                        </div>
-                      </div>
-                       <div class="row">
                         <div class="form-group col-6">
                            <label>Nationality</label><br/>
                            <label class="radio-inline">
@@ -144,6 +137,23 @@
                            </label><br/>
                            <span id="error_nationality" class="text-danger"></span><br>
                         </div>
+                        <div class="form-group col-6" hidden>
+                           <label>Your Followers on Instagram</label><br/>
+                           <input type="text" class="form-control" id="ig_followers" name="ig_followers" placeholder="Number of Followers" value="0" readonly/>
+                           <br/>
+                        </div>
+                      </div>
+                       <div class="row">
+                        {{-- <div class="form-group col-6">
+                           <label>Nationality</label><br/>
+                           <label class="radio-inline">
+                           <input type="radio" name="nationality" value="nigerian" class="required" required> Nigerian
+                           </label>
+                           <label class="radio-inline">
+                           <input type="radio" name="nationality" value="non-nigerian" > Non-Nigerian
+                           </label><br/>
+                           <span id="error_nationality" class="text-danger"></span><br>
+                        </div> --}}
                         <div class="form-group col-6 hide" id='cities-div'>
                            <label>Where do you live in Nigeria?</label>
                            <select name="state" id="state" class="form-control " onfocus='this.size=10;' onblur='this.size=1;' onchange='this.size=1; this.blur();' required>

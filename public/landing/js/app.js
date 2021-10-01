@@ -63,7 +63,8 @@ const showSecondPage = () => {
 
 const readyThirdPage = (data) => {
   const element = $('#page3');
-  console.log(data, 'jhja');
+  const tab1 = document.getElementById('content__section4__tab1');
+  tab1.onclick = null;
   element.show();
   $(`#page1`).hide();
   $('#page2').hide();
@@ -105,7 +106,20 @@ const registerUser = () => {
       readyThirdPage(data);
     },
     error: function (err) {
-      console.log(err)
+      if (err.status === 422) {
+        $.alert({
+          title: 'Error Occurred',
+          content: err.responseJSON.errors.email ? err.responseJSON.errors.email[0]
+              : err.responseJSON.errors.avatar ? err.responseJSON.errors.avatar[0] : 'All fields are required!',
+          theme: 'supervan'
+        });
+        return;
+      }
+      $.alert({
+        title: 'Error Occurred',
+        content: 'An unexpected error occurred please check your form and retry',
+        theme: 'supervan'
+      })
     }
   })
 }
