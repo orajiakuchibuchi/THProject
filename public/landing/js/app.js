@@ -49,8 +49,25 @@ const showFirstPage = () => {
   currentTab.addClass('btn__active');
   currentTab.siblings().removeClass('btn__active');
 };
+function insertAfter(referenceNode, newNode) {
+  referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
+}
 
 const showSecondPage = () => {
+  const phone = document.getElementById("phone").value;
+  const state = (phone.charAt(0) == '0' && phone.length == 11) || (phone.charAt(0) == '+' && phone.length == 14);
+  if(state === false){
+        alert('You currently entered a phone number of ' + phone.length + ' characters. Ensure you type in the correct number in nigerian format. eg 080... or +23480...');
+        return;
+  }else{
+    try {
+      parseInt(phone);
+      alert('Phone number captured');
+    } catch (error) {
+      alert('Invalid phone number. ' + error.message);
+      return;
+    }
+  }
   const element = $('#page2');
   element.show();
   element.siblings().hide();
