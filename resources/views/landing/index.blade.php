@@ -7,7 +7,7 @@
                 <nav>
                     <a href="#">&emsp;</a>
                     <a href="#">HOME</a>
-                    <a href="#sayuncleSection">WHAT IS SayUncle</a>
+                    <a href="#sayuncleSection">WHAT IS JustSayUncle</a>
                     <a href="#register">REGISTER</a>
                     <a href="#contact">CONTACT</a>
                     <div class="nav-actions">
@@ -23,7 +23,7 @@
             </div>
             <div class="side-bar" id="sideBar">
                 <div onclick="hideSideBar()"><img src="{{ asset('../landing/images/cancel.png') }}" alt="" width="40"></div>
-                <div><a href="#">WHAT IS SayUncle</a></div>
+                <div><a href="#">WHAT IS JustSayUncle</a></div>
                 <div><a href="#register">REGISTER</a></div>
                 <div><a href="#">CONTACT</a></div>
             </div>
@@ -69,6 +69,7 @@ Disclaimer</h5>
                         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
                         <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
                         <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
                     </ol>
                     <div class="carousel-inner">
                         <div class="carousel-item active">
@@ -79,6 +80,9 @@ Disclaimer</h5>
                         </div>
                         <div class="carousel-item">
                             <img class="img-fluid d-block" src="{{ asset('../landing/images/banner3.jpeg') }}" alt="Second slide">
+                        </div>
+                        <div class="carousel-item">
+                            <img class="img-fluid d-block" src="{{ asset('../landing/images/banner.jpg') }}" alt="Second slide">
                         </div>
                     </div>
                     <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -91,9 +95,11 @@ Disclaimer</h5>
                     </a>
                 </div>
                 <div class="header__btn">
-                    <button>
-                        Enter Now!
-                    </button>
+                    <a href="#register">
+                        <button>
+                            Enter Now!
+                        </button>
+                    </a>
                 </div>
                 <div class="header__social">
                     <img src="{{ asset('../landing/images/social.png') }}" alt="social">
@@ -219,10 +225,10 @@ Disclaimer</h5>
                                 <p class="nav-link" onclick="showRegisterTab(this)">Register</p>
                             </li>
                             <li class="nav-item">
-                                <p class="nav-link" onclick="showEarlyTab(this)">Early Bird Special (Pay 500)</p>
+                                <p class="nav-link" onclick="showEarlyTab(this)">Early Bird Special (Pay 1000)</p>
                             </li>
                             <li class="nav-item">
-                                <p class="nav-link" onclick="showLateTab(this)">Late to the Party (Pay 1000)</p>
+                                <p class="nav-link" onclick="showLateTab(this)">Late to the Party (Pay 1500)</p>
                             </li>
                             <li class="nav-item">
                                 <p class="nav-link" onclick="showUploadTab(this)">Upload Your Audition Video</p>
@@ -345,7 +351,7 @@ Disclaimer</h5>
                                         <label class="mr-4" for="nonNigerian">Non-nigerian</label>
                                     </div>
                                     <div class="col-md-6 col-sm-12 col-xs-12">
-                                        <label class="mr-4">Upload Image</label>
+                                        <label class="mr-4">Upload Your Selfie</label>
                                         <input type="file" name="age" id="upload_button" class="mr-1">
                                     </div>
                                 </div>
@@ -399,7 +405,7 @@ Disclaimer</h5>
 
         <section class="col-md-12 col-xs-12 content__section5">
             <div>
-                <h3 class="content__section5__header">How do I Become A <br><span>SayUncle Relative?</span>
+                <h3 class="content__section5__header">How do I Become A <br><span>JustSayUncle Relative?</span>
                 </h3>
                 <div class="row">
                     <div class="col-md-6 col-xs-12 col-sm-12 content__section5_step">
@@ -422,16 +428,16 @@ Disclaimer</h5>
                             <h5 class="mb-2">Step 2</h5>
                             <h4 class="mb-4"><strong>Make Your Payment</strong></h4>
                             <p>
-                                Nothing is free but you can’t beat this price for a chance to win BIG! After completing your                                   registration, simply make your payment. This will allow us to generate a unique number which is                                the key to getting closer to becoming a relative in the SayUncle contest. Remember there is a                              cutoff date for the Early Bird Special price so Register now.
+                                Nothing is free but you can’t beat this price for a chance to win BIG! After completing your                                   registration, simply make your payment. This will allow us to generate a unique number which is                                the key to getting closer to becoming a relative in the JustSayUncle contest. Remember there is a                              cutoff date for the Early Bird Special price so Register now.
                             </p>
                         </div>
                     </div>
                     <div class="col-md-6 col-xs-12 col-sm-12 content__section5_step">
                         <div>
                             <h5 class="mb-2">Step 3</h5>
-                            <h4 class="mb-4"><strong>Receive Your Unique SayUncle ID</strong></h4>
+                            <h4 class="mb-4"><strong>Receive Your Unique JustSayUncle ID</strong></h4>
                             <p>
-                                Once we successfully receive your payment, you will be sent email notification of successful                                    payment. In addition, you will also receive a unique SayUncle ID, if all goes well with your                               registration and payment processes.  A notification button will be available on this site before                               the contest so that you can check the status of your registration.
+                                Once we successfully receive your payment, you will be sent email notification of successful                                    payment. In addition, you will also receive a unique JustSayUncle ID, if all goes well with your                               registration and payment processes.  A notification button will be available on this site before                               the contest so that you can check the status of your registration.
 
                             </p>
                         </div>
@@ -448,9 +454,9 @@ Disclaimer</h5>
                             <h4 class="mb-4"><strong>Make or upload your audition video</strong></h4>
                             <p>
                                 Again, you will be sent email notification of successful payment. In addition, you will also receive a
-                                unique SayUncle ID, if all goes well with your registration and payment processes. This unique ID is
+                                unique JustSayUncle ID, if all goes well with your registration and payment processes. This unique ID is
                                 the key for you to be enabled to create and upload your audition video. There will be instructions in
-                                the email of how to do this. Now you’re one step closer to becoming a relative in the SayUncle
+                                the email of how to do this. Now you’re one step closer to becoming a relative in the JustSayUncle
                                 contest!
                             </p>
                         </div>
@@ -472,7 +478,7 @@ Disclaimer</h5>
                             <track label="Español" kind="captions" srclang="es" src="{{ asset('../sayUncle/images/one.mp4') }}">
                         </video>
                         <h4><strong>Emmanuela D.</strong></h4>
-                        <h5>Future SayUncle Relative # 4</h5>
+                        <h5>Future JustSayUncle Relative # 4</h5>
                     </div>
                     <div>
                         <video preload="metadata" src="{{ asset('../sayUncle/images/three.mp4') }}" controls>
@@ -482,7 +488,7 @@ Disclaimer</h5>
                             <track label="Español" kind="captions" srclang="es" src="{{ asset('../sayUncle/images/three.mp4') }}">
                         </video>
                         <h4><strong>Joan C.</strong></h4>
-                        <h5>Future SayUncle Relative # 2</h5>
+                        <h5>Future JustSayUncle Relative # 2</h5>
                     </div>
                 </div>
                 <div class="content__section6__row">
@@ -494,7 +500,7 @@ Disclaimer</h5>
                             <track label="Español" kind="captions" srclang="es" src="{{ asset('../sayUncle/images/two.mp4') }}">
                         </video>
                         <h4><strong>Ola V.</strong></h4>
-                        <h5>Future SayUncle Relative # 1</h5>
+                        <h5>Future JustSayUncle Relative # 1</h5>
                     </div>
                     <div>
                         <video preload="metadata" src="{{ asset('../sayUncle/images/four.mp4') }}" controls>
@@ -504,7 +510,7 @@ Disclaimer</h5>
                             <track label="Español" kind="captions" srclang="es" src="{{ asset('../sayUncle/images/four.mp4') }}">
                         </video>
                         <h4><strong>Mabel E.</strong></h4>
-                        <h5>Future SayUncle Relative # 3</h5>
+                        <h5>Future JustSayUncle Relative # 3</h5>
                     </div>
                 </div>
                 <div class="content__section6__bg1"></div>
@@ -556,7 +562,9 @@ Disclaimer</h5>
                 </div>
             </div>
             <div style="display: flex;align-items: center;justify-content: space-between;">
-                <img src="{{ asset('../landing/images/image48.png') }}" alt="" width="130">
+                <a href="https://www.facebook.com/officialvicomma" target="_blank">
+                    <img src="{{ asset('../landing/images/image48.png') }}" alt="" width="130">
+                </a>
                 <p class="text-white">Vicomma ©2021 All Rights Reserved.</p>
             </div>
         </div>

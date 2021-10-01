@@ -12,4 +12,4 @@
 <link rel="stylesheet" type="text/css" href="{{ asset('../sayUncle/css/cropper.min.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ asset('../sayUncle/css/loading.css') }}">
 <link rel="stylesheet" href="{{ asset('../landing/css/styles.css') }}">
-<title>SayUncle</title>
+<title>JustSayUncle</title>
