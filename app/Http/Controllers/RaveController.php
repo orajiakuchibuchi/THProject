@@ -51,7 +51,7 @@ class RaveController extends Controller
               "name" => $user_details['first_name'].' '.$user_details['last_name']
           ],
           "customizations" => [
-              "title" => 'SayUncle',
+              "title" => 'JustSayUncle',
               "description" => "User registration"
           ]
       ];
