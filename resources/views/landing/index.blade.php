@@ -102,14 +102,14 @@ Disclaimer</h5>
                     </a>
                 </div>
                 <div class="header__social">
-                    <a href="https://www.facebook.com/officialvicomma">
+                    <a href="https://www.facebook.com/officialvicomma" target="_blank">
                         <img class="mb-3" src="{{ asset('../landing/images/facebook.png') }}" alt="social">
                     </a>
                     <br>
-                    <a href="https://www.instagram.com/officialvicomma/">
+                    <a href="https://www.instagram.com/officialvicomma/" target="_blank">
                         <img class="mb-3" src="{{ asset('../landing/images/instagram.png') }}" alt="social">
                     </a><br>
-                    <a href="https://twitter.com/officialvicomma">
+                    <a href="https://twitter.com/officialvicomma" target="_blank">
                         <img class="mb-3" src="{{ asset('../landing/images/twitter.png') }}" alt="social">
                     </a><br>
                 </div>
