@@ -40,7 +40,7 @@ class RaveController extends Controller
       // Enter the details of the payment
       $data = [
           'payment_options' => 'card',
-          'amount' => 500,
+          'amount' => 1000,
           'email' => $user_details['email'],
           'tx_ref' => $reference,
           'currency' => "NGN",

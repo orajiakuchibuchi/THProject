@@ -82,7 +82,7 @@ Disclaimer</h5>
                             <img class="img-fluid d-block" src="{{ asset('../landing/images/banner3.jpeg') }}" alt="Second slide">
                         </div>
                         <div class="carousel-item">
-                            <img class="img-fluid d-block" src="{{ asset('../landing/images/banner.jpg') }}" alt="Second slide">
+                            <img class="img-fluid d-block" src="{{ asset('../landing/images/banner4.jpeg') }}" alt="Second slide">
                         </div>
                     </div>
                     <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -102,7 +102,16 @@ Disclaimer</h5>
                     </a>
                 </div>
                 <div class="header__social">
-                    <img src="{{ asset('../landing/images/social.png') }}" alt="social">
+                    <a href="https://www.facebook.com/officialvicomma">
+                        <img class="mb-3" src="{{ asset('../landing/images/facebook.png') }}" alt="social">
+                    </a>
+                    <br>
+                    <a href="https://www.instagram.com/officialvicomma/">
+                        <img class="mb-3" src="{{ asset('../landing/images/instagram.png') }}" alt="social">
+                    </a><br>
+                    <a href="https://twitter.com/officialvicomma">
+                        <img class="mb-3" src="{{ asset('../landing/images/twitter.png') }}" alt="social">
+                    </a><br>
                 </div>
                 <div class="header__info mb-3">
                     <p>Watch the live episodes now</p>
@@ -383,7 +392,7 @@ Disclaimer</h5>
                                 </div>
                                 <div class="form-row">
                                     <div class="col-md-12 col-sm-12 col-xs-12">
-                                        <p class="text-center" style="font-size: 20px">Amount to be paid: 500</p>
+                                        <p class="text-center" style="font-size: 20px">Amount to be paid: 1000</p>
                                         <p class="text-center" style="font-size: 20px">Currency: NGN</p>
                                     </div>
                                 </div>
