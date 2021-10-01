@@ -265,7 +265,7 @@ Disclaimer</h5>
                 </div>
                 <div class="content__section4__forms mt-4">
                     <div>
-                        <form action="#">
+                        <form action="#" id="sub-form"
                             <div class="content__section4__forms__page1" id="page1">
                                 <p class="mb-4">Please cross-check your information</p>
                                 <div class="form-row mb-3">
