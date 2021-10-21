@@ -124,4 +124,53 @@ class RaveController extends Controller
       }
       return redirect('/landing2')->with('transaction', $transaction);
   } 
+  public function newVideoUpload($uniqueId) {
+    $id = SayUncleContestPayment::where('tx_ref', $uniqueId)->first();
+    if(!$id){
+        return redirect('/');
+    }
+    $video = SayUncleContestantVideo::where('name', 'like', '%' . $uniqueId . '%')->first();
+    if($video){
+        return view('sayuncle.new_video_upload')->with(['uploaded'=> 'You have uploaded a video', 'uniqueId'=> $uniqueId]);
+        // return view('sayuncle.new_video_upload')->with('uploaded', 
+        //                                                 'You have uploaded a video.');
+    }
+    return view('sayuncle.new_video_upload')->with('uniqueId', $uniqueId);
+  }
+  public function uploadVideo(Request $request, $uniqueId){
+    $data=request()->all();
+    $rules=[
+      'video'          =>'mimes:mpeg,ogg,mp4,webm,3gp,mov,flv,avi,wmv,ts|max:100040|required'];
+   $validator = Validator($data,$rules);
+
+   if ($validator->fails()){
+       dd($validator);
+       return redirect()
+                   ->back()
+                   ->withErrors($validator)
+                   ->withInput();
+   }else{
+              $video=$data['video'];
+              $input = $uniqueId.".".$video->getClientOriginalExtension();
+              $destinationPath = 'sayUncle/uploads';
+              $video->move($destinationPath, $input);
+              $payment = SayUncleContestPayment::where('tx_ref', $uniqueId)->first();
+              $contestantVideo = new SayUncleContestantVideo();
+              $contestantVideo->sayuncle_contestant_id = $payment->sayuncle_contestant_id;
+              $contestantVideo->name = $input;
+              $contestantVideo->file_path = $destinationPath.$input;
+              $contestantVideo->file_name = $input;
+              $contestantVideo->save();
+            //   dd('Uploaded');
+                //   $user['video']       =$input;
+                //   $user['created_at']  =date('Y-m-d h:i:s');
+                //   $user['updated_at']  =date('Y-m-d h:i:s');
+                //   $user['user_id']     =session('user_id');
+                //   DB::table('user_videos')->insert($user);
+                $upload_success = 'Your video has been successfully uploaded.';
+                return view('sayuncle.new_video_upload')->with(['upload_success'=> $upload_success, 'uniqueId'=> $uniqueId]);
+                // return redirect()->back()->with('upload_success','upload_success');
+    }
+  }
+  
 }

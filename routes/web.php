@@ -126,9 +126,12 @@ Route::post('/email/event', 'GeneralController@eventEmail')->name('event.email')
 
 Route::match(['GET', 'POST'],'/pay', 'RaveController@initialize')->name('pay');
 Route::get('/rave/callback', 'RaveController@callback')->name('callback');
+Route::post('/upload/video/{uniqueId}', 'RaveController@uploadVideo')->name('uploadVideo');
 
 
 /////// New landing page
 Route::get('/landing2', function () {
     return view('landing.index');
 });
+/////// New landing page
+Route::get('/new-video-upload/{uniqueId}','RaveController@newVideoUpload')->name('newVideoUpload');

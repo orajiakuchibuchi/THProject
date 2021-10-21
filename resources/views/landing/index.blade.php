@@ -404,7 +404,8 @@ Disclaimer</h5>
                         <div class="content__section4__forms__page4" id="page4">
                             <p class="mb-4">Registration Complete!</p>
                             <div class="mt-5">
-                                <p style="font-size: 25px">Payment Successful! Thank you for registering for the upcoming Say Uncle contest</p>
+                                <p style="font-size: 25px">
+                                    Your payment has been received successfully! Thank you for registering, please check your email for your JustSayUncle ID and further instructions for becoming a relative! See you soon.</p>
                             </div>
                         </div>
                     </div>
