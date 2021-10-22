@@ -118,7 +118,7 @@ class RaveController extends Controller
 //
 //      }
       try {
-          Mail::to($data['customer']['email'])->send(new RegistrationMail());
+          Mail::to($data['customer']['email'])->send(new RegistrationMail($data['tx_ref']));
       }catch(\Throwable $th){
 
       }
