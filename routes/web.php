@@ -2,136 +2,39 @@
 
 use Illuminate\Http\Request;
 
-Route::get('/', 'Index');
- Route::get('/test',function(){
-//      $url = route('sayuncle.index');
-    	
-// return redirect($url)->with('alert','Thank you for registering for the upcoming Say Uncle contest; now, check your
-// email for further details…');
-//     $curl = curl_init();
-//     curl_setopt_array($curl, array(
-//       CURLOPT_URL => "https://api.flutterwave.com/v3/transactions/331757115/verify",
-//       CURLOPT_RETURNTRANSFER => true,
-//       CURLOPT_ENCODING => "",
-//       CURLOPT_MAXREDIRS => 10,
-//       CURLOPT_TIMEOUT => 0,
-//       CURLOPT_FOLLOWLOCATION => true,
-//       CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-//       CURLOPT_CUSTOMREQUEST => "GET",
-//       CURLOPT_HTTPHEADER => array(
-//         "Content-Type: application/json",
-//         "Authorization: Bearer ".config('rave.secretKey')
-//       ),
-//     ));
-    
-//     $response = curl_exec($curl);
-    
-//     curl_close($curl);
-//     dd( json_decode($response) ) ;
- });
-
-Route::group([
-    'prefix' => 'sayuncle',
-    'as' => 'sayuncle.',
-    'namespace' => 'SayUncle',
-], function() {
-
-    Route::get('/', 'SayUncleController@index')->name('index');
-    Route::get('/getinstagram/followers/{username}', 'SayUncleController@instagramFollowers')->name('instagramFollowers');
-    Route::post('/register', 'SayUncleController@register')->name('register'); 
-    Route::post('/new-register', 'SayUncleController@new_register')->name('new_register');
-    Route::get('/profile/{contestant}', 'SayUncleController@publicProfile' )->name('contestant.profile');
-    Route::get('/contestant/{contestant}/{signature?}', 'SayUncleController@contestantDetail')->name('contestant.details')->middleware('contestant.auth');
-    Route::get('/payment/{contestant}/{signature?}', 'SayUncleController@paymentform' )->name('payment')->middleware('contestant.auth');
-    Route::get('/video/{video_id}/upload/{contestant}/{signature?}', 'SayUncleController@uploadVideoForm' )->name('video.upload.form')->middleware('contestant.auth');
-    Route::post('/video/upload/{contestant}/{signature?}', 'SayUncleController@uploadVideo' )->name('video.upload')->middleware('contestant.auth');
-    Route::get('/imageUpload', 'SayUncleController@imageUpload')->name('imageUpload');
-
-    
-
-
-    Route::post('/validate/fields', 'SayUncleController@validateField')->name('validate.field');
-
-    Route::post('/check/status', 'SayUncleController@getContestantLink')->name('check.status');
-    Route::post('/contestant/{id}/vote', 'SayUncleController@voteContestantEmail')->name('contestant.vote.email');
-
-    Route::get('/vote/contestant/{voter_number}', 'SayUncleController@voteContestant')->name('contestant.vote');
-
-});
-    
-
+Route::get('/', 'Controller@index');
+Route::get('/contact-us', 'Controller@contact');
+Route::get('/registration/{type}', 'Controller@registration');
+Route::get('/about-us', 'Controller@about');
+Route::get('/payment/', 'Controller@payment');
+Route::get('/payment/{invoice_id}', 'Controller@payment');
+Route::get('/terms-and-conditions', 'Controller@terms');
+Route::get('/consulting', 'Controller@consulting');
+Route::get('/training', 'Controller@training');
+Route::get('/bank-transactions-audit', 'ConsultingController@bankTransactionAudit');
+Route::get('/business-process-re-engineering', 'ConsultingController@businessProcess');
+Route::get('/litigation-support', 'ConsultingController@litigationSupport');
+Route::get('/consulting-team', 'ConsultingController@team');
+Route::get('/training-team', 'TrainingController@team');
+Route::get('/miscallaneous', 'TrainingController@miscallaneous');
+Route::get('/citn', 'TrainingController@citn');
+Route::get('/atswa', 'TrainingController@atswa');
+Route::get('/ican', 'TrainingController@ican');
+Route::get('/acca', 'TrainingController@acca');
+Route::get('/info-board', 'TrainingController@infoBoard');
+Route::get('/ielts', 'TrainingController@ielts');
+Route::get('/toefl', 'TrainingController@toefl');
+Route::get('/gmat', 'TrainingController@gmat');
+Route::get('/gre', 'TrainingController@gre');
+Route::get('/sat', 'TrainingController@sat');
+Route::get('/pte', 'TrainingController@pte');
+Route::get('/confirmation', 'TrainingController@confirmation');
+Route::post('/form/{type}', 'TrainingController@formSubmission');
 
 Auth::routes();
 
-Route::group([
-    'prefix' => '{role}',
-    'where' => ['role' => '(seller|creative)'],
-], function() {
-
-    Route::match(['get', 'post'], 'ebook', 'Home');
-    Route::match(['get', 'post'], '/', 'AboutUs');
-
-});
-
-Route::group([
-    'prefix' => 'console',
-    'as' => 'console.',
-    'namespace' => 'Console',
-    'middleware' => ['auth'],
-], function() {
-
-    Route::get('/', 'Index@index')->name('index');
-    Route::get('/edit-password', 'Index@editPassword')->name('editPassword');
-    Route::post('/update-password', 'Index@updatePassword')->name('updatePassword');
-
-    Route::group([
-        'prefix' => '{role}',
-        'where' => ['role' => '(seller|influencer|all)'],
-    ], function() {
-
-        Route::match(['get', 'post'], 'aboutUs', 'AboutUs')->name('about_us');
-    });
-
-    Route::get('joinTheWave/{id?}', 'JoinTheWave')->name('joinTheWave');
-    
-    Route::group([
-        'prefix' => 'events'], function() {
-
-        Route::get('/', 'Events@index')->name('events');
-        Route::get('/create', 'Events@create')->name('event.create');
-        Route::post('/save', 'Events@save')->name('event.save');
-        Route::get('/{id}/edit', 'Events@edit')->name('event.edit');
-        Route::post('/{id}/update', 'Events@update')->name('event.update');
-        Route::post('/{id}/delete', 'Events@delete')->name('event.delete');
-
-    });
-
-    Route::group([
-        'prefix' => 'sayuncle/contestants',
-        'as' => 'sayuncle.',
-        
-    ], function() {
-
-        Route::get('/', 'SayUncleController@index')->name('contestants');
-        Route::get('/{id}/show', 'SayUncleController@show')->name('contestant.show');
-        Route::post('{id}/update/video/{videoId}/status', 'SayUncleController@updateVideoStatus')->name('update.video');
-        
-    });
-});
-
-Route::post('/joinTheWave', 'JoinTheWave')->name('joinTheWave');
-Route::get('/events', 'GeneralController@events')->name('events');
-Route::post('/email/event', 'GeneralController@eventEmail')->name('event.email');
-
 
 Route::match(['GET', 'POST'],'/pay', 'RaveController@initialize')->name('pay');
+Route::match(['GET', 'POST'],'/registration/pay', 'RaveController@initialize')->name('pay');
 Route::get('/rave/callback', 'RaveController@callback')->name('callback');
 Route::post('/upload/video/{uniqueId}', 'RaveController@uploadVideo')->name('uploadVideo');
-
-
-/////// New landing page
-Route::get('/landing2', function () {
-    return view('landing.index');
-});
-/////// New landing page
-Route::get('/new-video-upload/{uniqueId}','RaveController@newVideoUpload')->name('newVideoUpload');

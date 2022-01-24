@@ -8,11 +8,15 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use App\Models\SayUncleContestant;
 use App\Models\SayUncleContestPayment;
+use App\Reistration;
 use App\Models\SayUncleContestantVideo;
 use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\Log;
 use App\Mail\RegistrationMail;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Carbon;
+use Session;
+use Redirect;
 
 //use the Rave Facade
 
@@ -36,27 +40,96 @@ class RaveController extends Controller
   public function initialize ()
   {
       $user_details = \request()->all();
+      $message = "";
+      // dd($user_details);
+      foreach ($user_details as $key => $value) {
+        if($key !== 'othername' && is_null($value)){
+          $message .= $key . " is required.\n";
+        }
+        if($key == 'ihaveread' && ($value == 'no' || $value == 'No')){
+          $message .= "You must read and agree to our terms and contitions.\n";
+        }
+      }
+      if(strlen($message) > 0){
+        // return redirect()->back()->with('errors',  $errors);
+        Session::flash('message', $message);
+        return Redirect::back();
+        // return Redirect::back()->withErrors(['errors' => $errors]);;
+      }
+      // dd($user_details);
       $reference = Helper::generateReference();
+      $newRegistration = new Reistration();
+      $newRegistration->trans_id = $reference;
+      $newRegistration->reg_date = Carbon::now()->format('Y-m-d');
+      // $newRegistration->passport = \request();
+      $newRegistration->diet = \request()->diet;
+      $newRegistration->firstname = \request()->firstname;
+      $newRegistration->lastname = \request()->lastname;
+      $newRegistration->othername = isset(\request()->lastname) ? \request()->lastname : '';
+      $newRegistration->gender = \request()->gender;
+      $newRegistration->sponsor = \request()->sponsor;
+      $newRegistration->homeaddress = \request()->homeaddress;
+      $newRegistration->employer = \request()->employer;
+      $newRegistration->phonenumber = \request()->phonenumber;
+      $newRegistration->email = \request()->email;
+      $newRegistration->qualifications = \request()->qualifications;
+      $newRegistration->trainingmethod = \request()->trainingmethod;
+      $newRegistration->trainingtype = \request()->trainingtype;
+      $newRegistration->maritalstatus = \request()->maritalstatus;
+      $newRegistration->howdidyouknow = \request()->howdidyouknow;
+      $newRegistration->studentStatus = $reference;
+      $newRegistration->total = \request()->total;
+      $newRegistration->ihaveread = \request()->ihaveread;
+      $newRegistration->types = \request()->types;
+      $newRegistration->exam_select = \request()->exam_select;
+      $newRegistration->exam_select2 = \request()->exam_select2;
+      $newRegistration->exam_select3 = \request()->exam_select3;
+      // $newRegistration->foreignType = $reference;
+      // $newRegistration->register = \request()->register;
+      // $newRegistration->total = \request()->total;
+      // $newRegistration->foreignTypePayment = $reference;
+      // $newRegistration->foreignTotal = $reference;
+      $image = \request()->file('passport');
+      if(\request()->hasFile('passport')){
+           //get filename with extension
+          $filenamewithextension = $image->getClientOriginalName();
+
+          //get filename without extension
+          $filename = pathinfo($filenamewithextension, PATHINFO_FILENAME);
+
+          //get file extension
+          $extension = $image->getClientOriginalExtension();
+
+          //filename to store
+          $filenametostore = $filename.'_'.uniqid().'.'.$extension;
+
+          $path = $image->move(public_path().'/images/passport/', $filenametostore);
+          $newRegistration->passport = $filenametostore;
+      }else{
+        return view('.new_video_upload')->with('uniqueId', $uniqueId);
+      }
+      $newRegistration->save();
       // Enter the details of the payment
       $data = [
           'payment_options' => 'card',
-          'amount' => 1000,
-          'email' => $user_details['email'],
+          'amount' => \request()['total'],
+          'email' => \request()['email'],
           'tx_ref' => $reference,
           'currency' => "NGN",
           'redirect_url' => route('callback'),
           'customer' => [
-              'email' => $user_details['email'],
-              "phone_number" => $user_details['phone'],
-              "name" => $user_details['first_name'].' '.$user_details['last_name']
+              'email' => \request()['email'],
+              "phone_number" => \request()['phonenumber'],
+              "name" => \request()['firstname'].' '.\request()['lastname']
           ],
           "customizations" => [
-              "title" => 'JustSayUncle',
+              "title" => 'Treasure Hall',
               "description" => "User registration"
           ]
       ];
-      $this->createTransaction($data, $user_details['user_id']);
+      $this->createTransaction($data, 1);
       $payment = Flutterwave::initiatePayment($data);
+      // dd($payment);
       if (!$payment['success']) {
           return redirect()->back()->with('alert', 'Payment failed!');
       }
@@ -72,29 +145,19 @@ class RaveController extends Controller
   public function callback (Request $request) {
       $resp = $request->all();
       $data = verify_flutterwave_payment($resp['transaction_id']);
-      $transaction = SayUncleContestPayment::where('tx_ref', $data['tx_ref'])->first();
+      $transaction = Reistration::where('trans_id', $data['tx_ref'])->first();
       if (!$transaction) {
           return redirect()->back()->with('alert', 'Transaction not found');
       }
-//      if (($data['chargeResponseCode'] == "00" || $data['chargeResponseCode'] == "0") && ($data['currency'] == 'NGN')) {
-//          $payment_data = [];
-//          if(isset($data['customer']) && isset($data['customer']['email']) ){
-//          $contestant_email = $data['customer']['email'];
-//          }else{
-//          $contestant_email = session('payment_form_contestant_email');
-//      }
-//      session()->forget('payment_form_contestant_email');
-//      $contestant = SayUncleContestant::where('email', $contestant_email)->get()->first();
-//
-//      if($contestant){
-//        $video = SayUncleContestantVideo::create(['sayuncle_contestant_id' => $contestant->id,'is_completed'=>0,'payment_status'=>0]);
-//
-//        $payment_data['sayuncle_contestant_id'] = $contestant->id ?? null;
-//        $payment_data['sayuncle_contestant_video_id'] = $video->id ?? null;
-//      }else{
-//        $payment_data['sayuncle_contestant_id'] =  null;
-//        $payment_data['sayuncle_contestant_video_id'] =  null;
-//      }
+     if (($data['chargeResponseCode'] == "00" || $data['chargeResponseCode'] == "0") && ($data['currency'] == 'NGN')) {
+         $payment_data = [];
+         if(isset($data['customer']) && isset($data['customer']['email']) ){
+            $contestant_email = $data['customer']['email'];
+         }else{
+            $contestant_email = session('payment_form_contestant_email');
+     }
+     session()->forget('payment_form_contestant_email');
+     $contestant = Reistration::where('email', $contestant_email)->get()->first();
       $transaction->account_id = $data['id'];
       $transaction->amount = $data['amount'];
       $transaction->currency = $data['currency'];
@@ -105,24 +168,13 @@ class RaveController extends Controller
       $transaction->customer_id = $data['customer']['id'];
       $transaction->ip = $data['ip'];
       $transaction->save();
-
-      if(isset($video)){
-        $video->payment_status = 1;
-        $video->is_completed = 0;
-        $video->save();
-      }
-//      if($payment->is_verified == 1){
-//          return redirect()->route('sayuncle.video.upload.form',['contestant'=> $contestant->id,'signature'=>$contestant->auth_token,'video_id'=>$video->id]);
-//      }else{
-//        return redirect()->route('sayuncle.contestant.details',['contestant'=> $contestant->id,'signature'=>$contestant->auth_token])->with('error','Not allowed unless payment is verified');
-//
-//      }
+    }
       try {
           Mail::to($data['customer']['email'])->send(new RegistrationMail($data['tx_ref']));
       }catch(\Throwable $th){
 
       }
-      return redirect('/landing2')->with('transaction', $transaction);
+      return redirect('/confirmation')->with('transaction', $transaction);
   } 
   public function newVideoUpload($uniqueId) {
     $id = SayUncleContestPayment::where('tx_ref', $uniqueId)->first();
